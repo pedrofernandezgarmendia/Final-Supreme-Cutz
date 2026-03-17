@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Supreme Cutz — La barbería con 5 estrellas de Majadahonda. Cortes, fades, barba y nail studio. Reserva online.">
+<meta name="keywords" content="barbería Majadahonda, Supreme Cutz, corte pelo Majadahonda, fade degradado, barba Majadahonda, nail studio">
+<title>Supreme Cutz · Barbershop · Majadahonda</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070707;--bg2:#0f0f0f;--bg3:#161616;--line:#1e1e1e;--gold:#c9a84c;--gold2:#e8c97a;--white:#f0eeea;--grey:#6b6b68;--red:#b03025;--disp:'Bebas Neue',sans-serif;--body:'DM Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--white);overflow-x:hidden;cursor:none}
+.cur{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+.cur2{position:fixed;width:32px;height:32px;border:1px solid rgba(201,168,76,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s ease}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--gold)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;transition:all .4s}
+nav.s{background:rgba(7,7,7,.97);backdrop-filter:blur(20px);padding:14px 60px;border-bottom:1px solid var(--line)}
+.logo{font-family:var(--disp);font-size:22px;letter-spacing:.08em;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.nav-r{display:flex;align-items:center;gap:36px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-btn{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:12px 28px;text-decoration:none;transition:background .2s}
+.nav-btn:hover{background:var(--gold2)}
+.ham{display:none;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer}
+.ham span{display:block;width:22px;height:1px;background:var(--white);transition:all .3s}
+.mob{display:none;position:fixed;inset:0;background:var(--bg);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.mob.open{display:flex}
+.mob a{font-family:var(--disp);font-size:48px;letter-spacing:.06em;color:var(--white);text-decoration:none;transition:color .2s}
+.mob a:hover{color:var(--gold)}
+.mob-x{position:absolute;top:24px;right:28px;font-size:24px;color:var(--grey);background:none;border:none;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:var(--bg);padding:0 60px 60px;padding-top:140px}
+.hero-lines{position:absolute;inset:0;pointer-events:none}
+.hero-line{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.hero-eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:24px;opacity:0;animation:up .8s .2s forwards}
+.eyebrow-line{width:40px;height:1px;background:var(--gold)}
+.eyebrow-txt{font-size:10px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.hero-h1{font-family:var(--disp);font-size:clamp(72px,13vw,190px);line-height:.88;letter-spacing:.01em;margin-bottom:0}
+.h1-line{display:block;overflow:hidden}
+.h1-inner{display:block;opacity:0;transform:translateY(100%);animation:slideUp .9s forwards}
+.h1-line:nth-child(1) .h1-inner{animation-delay:.3s}
+.h1-line:nth-child(2) .h1-inner{animation-delay:.45s;color:var(--gold)}
+.h1-line:nth-child(3) .h1-inner{animation-delay:.6s;font-size:.42em;letter-spacing:.1em}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;margin-top:40px;gap:40px;opacity:0;animation:up .8s .85s forwards}
+.hero-desc{font-size:14px;font-weight:300;color:var(--grey);line-height:1.8;max-width:400px}
+.hero-btns{display:flex;gap:12px;flex-shrink:0}
+.btn-fill{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:16px 40px;text-decoration:none;transition:all .25s;display:inline-block}
+.btn-fill:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-stroke{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--white);padding:15px 40px;text-decoration:none;border:1px solid var(--line);transition:all .25s;display:inline-block}
+.btn-stroke:hover{border-color:var(--gold);color:var(--gold)}
+.hero-score{position:absolute;right:60px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:up .8s 1s forwards;z-index:2}
+.score-num{font-family:var(--disp);font-size:88px;line-height:1;color:var(--gold);letter-spacing:.02em}
+.score-stars{display:flex;gap:4px}
+.score-star{color:var(--gold);font-size:16px}
+.score-txt{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);text-align:center}
+
+/* MARQUEE */
+.mq{background:var(--gold);overflow:hidden;padding:14px 0}
+.mq-track{display:flex;white-space:nowrap;animation:scroll 18s linear infinite}
+.mq-item{font-family:var(--disp);font-size:18px;letter-spacing:.12em;color:var(--bg);padding:0 32px;display:flex;align-items:center;gap:24px}
+.mq-dot{width:4px;height:4px;border-radius:50%;background:rgba(0,0,0,.3);flex-shrink:0}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(100%)}to{opacity:1;transform:translateY(0)}}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}.rv.d5{transition-delay:.5s}
+
+/* LAYOUT */
+section{padding:110px 0}
+.c{max-width:1160px;margin:0 auto;padding:0 60px}
+.tag{display:inline-flex;align-items:center;gap:12px;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.tag::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
+.h2{font-family:var(--disp);font-size:clamp(50px,7vw,92px);letter-spacing:.02em;line-height:.95;color:var(--white);margin-bottom:20px}
+.h2 i{font-style:normal;color:var(--gold)}
+.lead{font-size:15px;font-weight:300;color:var(--grey);line-height:1.8;max-width:480px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:64px}
+.grid-1px{background:var(--line);border:1px solid var(--line)}
+
+/* SERVICIOS */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px}
+.svc{background:var(--bg2);padding:40px 28px;position:relative;overflow:hidden;transition:background .3s}
+.svc:hover{background:var(--bg3)}
+.svc::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold);transition:width .4s}
+.svc:hover::after{width:100%}
+.svc-n{font-family:var(--disp);font-size:48px;color:var(--line);line-height:1;margin-bottom:18px;transition:color .3s}
+.svc:hover .svc-n{color:rgba(201,168,76,.12)}
+.svc-ico{font-size:20px;margin-bottom:12px}
+.svc-name{font-family:var(--disp);font-size:24px;letter-spacing:.04em;color:var(--white);margin-bottom:10px}
+.svc-desc{font-size:12px;font-weight:300;color:var(--grey);line-height:1.7;margin-bottom:24px}
+.svc-foot{display:flex;justify-content:space-between;align-items:flex-end;padding-top:18px;border-top:1px solid var(--line)}
+.svc-time{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.svc-price{font-family:var(--disp);font-size:44px;letter-spacing:.02em;color:var(--gold);line-height:1}
+.svc.hot{background:#0e0b04}
+.svc.hot .svc-name{color:var(--gold2)}
+
+/* EQUIPO */
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px}
+.team{background:var(--bg2);overflow:hidden;transition:background .3s;position:relative}
+.team:hover{background:var(--bg3)}
+.team-av{height:170px;display:flex;align-items:center;justify-content:center;background:var(--bg3);position:relative}
+.team-init{font-family:var(--disp);font-size:52px;color:var(--line);letter-spacing:.04em;transition:color .3s}
+.team:hover .team-init{color:rgba(201,168,76,.18)}
+.team-bar{position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.team:hover .team-bar{transform:scaleX(1)}
+.team-info{padding:20px 18px}
+.team-name{font-family:var(--disp);font-size:20px;letter-spacing:.05em;color:var(--white);margin-bottom:3px}
+.team-role{font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.team-bio{font-size:11px;font-weight:300;color:var(--grey);line-height:1.6}
+.team.boss{background:#0e0b04}
+.team.boss .team-av{background:#140e04}
+.team.boss .team-init{color:rgba(201,168,76,.14)}
+
+/* RESEÑAS */
+.rev-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:24px}
+.rev-badge{display:flex;align-items:center;gap:16px;padding:20px 24px;border:1px solid var(--line);background:var(--bg2)}
+.badge-num{font-family:var(--disp);font-size:52px;color:var(--gold);line-height:1;letter-spacing:.03em}
+.badge-r{display:flex;flex-direction:column;gap:5px}
+.badge-stars{display:flex;gap:3px}
+.badge-star{color:var(--gold);font-size:13px}
+.badge-txt{font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.rc{background:var(--bg2);padding:30px 26px;transition:background .3s}
+.rc:hover{background:var(--bg3)}
+.rc-stars{display:flex;gap:3px;margin-bottom:16px}
+.rc-star{color:var(--gold);font-size:12px}
+.rc-txt{font-size:14px;font-weight:300;font-style:italic;color:var(--white);line-height:1.75;margin-bottom:18px}
+.rc-reply{background:rgba(201,168,76,.05);border-left:2px solid var(--gold);padding:9px 12px;font-size:11px;color:var(--grey);font-style:italic;margin-bottom:16px;line-height:1.5}
+.rc-author{display:flex;align-items:center;gap:11px}
+.rc-av{width:34px;height:34px;border-radius:50%;background:var(--line);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-size:13px;color:var(--gold);letter-spacing:.04em;flex-shrink:0}
+.rc-name{font-size:12px;font-weight:500;color:var(--white)}
+.rc-meta{font-size:10px;color:var(--grey)}
+
+/* NAILS */
+.nails-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.nails-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:32px}
+.nc{background:var(--bg2);padding:26px 20px;transition:background .3s}
+.nc:hover{background:var(--bg3)}
+.nc-ico{font-size:20px;margin-bottom:10px}
+.nc-name{font-family:var(--disp);font-size:19px;letter-spacing:.04em;color:var(--white);margin-bottom:4px}
+.nc-price{font-size:21px;font-weight:500;color:var(--gold)}
+.nc-time{font-size:10px;color:var(--grey);margin-top:3px;letter-spacing:.08em}
+
+/* CONTACTO */
+.contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:80px}
+.ci{padding:22px 0;border-bottom:1px solid var(--line)}
+.ci:first-child{padding-top:0}
+.ci-lbl{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.ci-txt{font-size:14px;color:var(--white);line-height:1.7}
+.ci-txt a{color:var(--gold);text-decoration:none}
+.hor{display:flex;flex-direction:column}
+.hor-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(30,30,30,.7)}
+.hor-row:last-child{border-bottom:none}
+.hor-d{font-size:13px;color:var(--grey)}
+.hor-t{font-size:13px;color:var(--white);font-weight:500;text-align:right}
+.hor-c{color:var(--red)}
+.map{width:100%;height:155px;overflow:hidden;border:1px solid var(--line);margin-top:14px}
+.map iframe{width:100%;height:100%;border:none;filter:grayscale(100%) invert(85%) contrast(85%) brightness(.75)}
+.form{display:flex;flex-direction:column;gap:13px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fl{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+.fg input,.fg select,.fg textarea{font-family:var(--body);font-size:13px;color:var(--white);background:var(--bg2);border:1px solid var(--line);padding:13px 15px;outline:none;transition:border-color .2s;border-radius:0;-webkit-appearance:none}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--grey)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
+.fg select option{background:var(--bg2)}
+.fg select{color:var(--white)}
+.fg textarea{height:88px;resize:vertical}
+.form-sub{font-family:var(--body);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--bg);background:var(--gold);border:none;padding:17px;cursor:pointer;transition:background .25s;width:100%}
+.form-sub:hover{background:var(--gold2)}
+.form-note{font-size:11px;color:var(--grey);text-align:center}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--line);padding:56px 0 28px}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:56px;margin-bottom:44px}
+.ft-logo{font-family:var(--disp);font-size:26px;letter-spacing:.06em;color:var(--white);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.ft-dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.ft-desc{font-size:12px;font-weight:300;color:var(--grey);line-height:1.8;margin-bottom:18px}
+.ft-soc{display:flex;gap:7px}
+.ft-soc a{width:32px;height:32px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--grey);text-decoration:none;font-size:10px;font-weight:600;transition:all .2s}
+.ft-soc a:hover{border-color:var(--gold);color:var(--gold)}
+.ft-h{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ft-links a{font-size:12px;color:rgba(240,238,234,.35);text-decoration:none;transition:color .2s}
+.ft-links a:hover{color:var(--gold)}
+.ft-ct p{font-size:12px;color:rgba(240,238,234,.35);line-height:1.9}
+.ft-ct a{color:var(--gold);text-decoration:none}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:22px;border-top:1px solid var(--line);flex-wrap:wrap;gap:10px}
+.ft-copy{font-size:10px;color:rgba(240,238,234,.18);letter-spacing:.06em}
+
+/* WA */
+.wa{position:fixed;bottom:30px;right:30px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.wa-tip{background:var(--bg2);border:1px solid var(--line);color:var(--white);font-size:11px;padding:8px 13px;opacity:0;transform:translateX(8px);transition:all .2s;pointer-events:none;white-space:nowrap;font-weight:300}
+.wa:hover .wa-tip{opacity:1;transform:translateX(0)}
+.wa-btn{width:48px;height:48px;background:#25d366;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s}
+.wa-btn:hover{transform:scale(1.1)}
+.wa-btn svg{width:24px;height:24px;fill:#fff}
+
+/* BOOKSY LINK */
+.booksy-link{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:13px 24px;background:var(--bg2);border:1px solid var(--line);color:var(--white);text-decoration:none;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;transition:all .25s}
+.booksy-link:hover{border-color:var(--gold);color:var(--gold)}
+.booksy-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+@media(max-width:960px){
+  nav{padding:16px 20px}nav.s{padding:12px 20px}
+  .nav-links,.nav-btn{display:none}.ham{display:flex}
+  .c{padding:0 20px}section{padding:72px 0}
+  .hero{padding:0 20px 40px;padding-top:120px}
+  .hero-score{right:20px;top:auto;bottom:110px;transform:none}
+  .score-num{font-size:60px}
+  .two-col,.nails-layout,.contact-layout{grid-template-columns:1fr;gap:28px}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr;gap:30px}
+  .ft-bottom{flex-direction:column;text-align:center}
+  .hero-bottom{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:540px){
+  .svc-grid,.form-row{grid-template-columns:1fr}
+  .h2{font-size:clamp(44px,12vw,72px)}
+}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur2" id="cur2"></div>
+
+<nav id="nav">
+  <a href="#" class="logo"><div class="logo-dot"></div>SUPREME CUTZ</a>
+  <div class="nav-r">
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+      <li><a href="#resenas">Reseñas</a></li>
+      <li><a href="#nails">Nails</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="nav-btn">Reservar</a>
+    <button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob" id="mob">
+  <button class="mob-x" onclick="toggleMenu()">✕</button>
+  <a href="#servicios" onclick="toggleMenu()">Servicios</a>
+  <a href="#equipo" onclick="toggleMenu()">Equipo</a>
+  <a href="#resenas" onclick="toggleMenu()">Reseñas</a>
+  <a href="#nails" onclick="toggleMenu()">Nails</a>
+  <a href="#contacto" onclick="toggleMenu()">Contacto</a>
+</div>
+
+<section class="hero" id="hero">
+  <div class="hero-lines">
+    <div class="hero-line" style="left:25%"></div>
+    <div class="hero-line" style="left:50%"></div>
+    <div class="hero-line" style="left:75%"></div>
+  </div>
+  <div class="hero-eyebrow">
+    <div class="eyebrow-line"></div>
+    <span class="eyebrow-txt">Calle Las Norias, 13 · Majadahonda · Madrid</span>
+  </div>
+  <h1 class="hero-h1">
+    <span class="h1-line"><span class="h1-inner">SUPREME</span></span>
+    <span class="h1-line"><span class="h1-inner">CUTZ</span></span>
+    <span class="h1-line"><span class="h1-inner">BARBERSHOP</span></span>
+  </h1>
+  <div class="hero-bottom">
+    <p class="hero-desc">La barbería con 5 estrellas del noroeste de Madrid. Fades, cortes clásicos, arreglo de barba y nail studio — todo en el mismo sitio.</p>
+    <div class="hero-btns">
+      <a href="#contacto" class="btn-fill">Pedir cita</a>
+      <a href="#servicios" class="btn-stroke">Ver servicios</a>
+    </div>
+  </div>
+  <div class="hero-score">
+    <div class="score-num">5.0</div>
+    <div class="score-stars"><span class="score-star">★</span><span class="score-star">★</span><span class="score-star">★</span><span class="score-star">★</span><span class="score-star">★</span></div>
+    <div class="score-txt">298 reseñas<br>Google</div>
+  </div>
+</section>
+
+<div class="mq">
+  <div class="mq-track">
+    <span class="mq-item">CORTE DE PELO<span class="mq-dot"></span></span>
+    <span class="mq-item">FADE Y DEGRADADO<span class="mq-dot"></span></span>
+    <span class="mq-item">ARREGLO DE BARBA<span class="mq-dot"></span></span>
+    <span class="mq-item">NAIL STUDIO<span class="mq-dot"></span></span>
+    <span class="mq-item">5 ESTRELLAS EN GOOGLE<span class="mq-dot"></span></span>
+    <span class="mq-item">MAJADAHONDA<span class="mq-dot"></span></span>
+    <span class="mq-item">CORTE DE PELO<span class="mq-dot"></span></span>
+    <span class="mq-item">FADE Y DEGRADADO<span class="mq-dot"></span></span>
+    <span class="mq-item">ARREGLO DE BARBA<span class="mq-dot"></span></span>
+    <span class="mq-item">NAIL STUDIO<span class="mq-dot"></span></span>
+    <span class="mq-item">5 ESTRELLAS EN GOOGLE<span class="mq-dot"></span></span>
+    <span class="mq-item">MAJADAHONDA<span class="mq-dot"></span></span>
+  </div>
+</div>
+
+<section style="background:var(--bg)" id="servicios">
+  <div class="c">
+    <div class="two-col">
+      <div class="rv"><span class="tag">Los cortes</span><h2 class="h2">NUESTROS<br><i>SERVICIOS</i></h2></div>
+      <div class="rv d2">
+        <p class="lead">Precios honestos, resultado garantizado. Cuéntanos qué quieres y lo hacemos realidad.</p>
+        <a href="https://booksy.com/es-es/5537_supreme-cutz-barbershop-nails_barberia_53073_majadahonda" target="_blank" class="booksy-link"><span class="booksy-dot"></span>Reservar en Booksy</a>
+      </div>
+    </div>
+    <div class="svc-grid grid-1px">
+      <div class="svc rv d1"><div class="svc-n">01</div><div class="svc-ico">✂️</div><div class="svc-name">CORTE DE PELO</div><div class="svc-desc">Corte completo con tijera y máquina. Incluye lavado y acabado. Adaptado a tu estilo y tipo de cabello.</div><div class="svc-foot"><span class="svc-time">30 min</span><span class="svc-price">14€</span></div></div>
+      <div class="svc hot rv d2"><div class="svc-n">02</div><div class="svc-ico">⚡</div><div class="svc-name">CORTE + BARBA</div><div class="svc-desc">El combo más popular. Corte perfecto más arreglo y perfilado de barba. El servicio estrella del local.</div><div class="svc-foot"><span class="svc-time">45 min</span><span class="svc-price">18€</span></div></div>
+      <div class="svc rv d3"><div class="svc-n">03</div><div class="svc-ico">🪒</div><div class="svc-name">ARREGLO DE BARBA</div><div class="svc-desc">Perfilado, recorte y definición con cuchilla. Incluye aceite hidratante para un acabado limpio y duradero.</div><div class="svc-foot"><span class="svc-time">30 min</span><span class="svc-price">12€</span></div></div>
+      <div class="svc rv d4"><div class="svc-n">04</div><div class="svc-ico">🎯</div><div class="svc-name">FADE / DEGRADADO</div><div class="svc-desc">Skin fade, mid fade o high fade. La especialidad de la casa. Transiciones perfectas que duran hasta la próxima cita.</div><div class="svc-foot"><span class="svc-time">30 min</span><span class="svc-price">14€</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg2)" id="equipo">
+  <div class="c">
+    <div class="two-col">
+      <div class="rv"><span class="tag">Las personas</span><h2 class="h2">EL <i>EQUIPO</i></h2></div>
+      <p class="lead rv d2">Cinco profesionales, un mismo estándar. Aquí no existe el "cualquiera te atiende" — cada uno tiene su especialidad y sus clientes lo saben.</p>
+    </div>
+    <div class="team-grid grid-1px">
+      <div class="team boss rv d1">
+        <div class="team-av"><span class="team-init">JO</span><div class="team-bar"></div></div>
+        <div class="team-info"><div class="team-name">JOSE</div><div class="team-role">Fundador · Head Barber</div><div class="team-bio">El más solicitado. Da el mejor servicio y sus clientes vuelven sin falta cada mes. Responde personalmente cada reseña del local.</div></div>
+      </div>
+      <div class="team rv d2">
+        <div class="team-av"><span class="team-init">LU</span><div class="team-bar"></div></div>
+        <div class="team-info"><div class="team-name">LUIS</div><div class="team-role">Barber</div><div class="team-bio">Detallista y gran profesional. Especialidad en cortes clásicos con un acabado que dura y sorprende.</div></div>
+      </div>
+      <div class="team rv d3">
+        <div class="team-av"><span class="team-init">FE</span><div class="team-bar"></div></div>
+        <div class="team-info"><div class="team-name">FELIPE</div><div class="team-role">Barber</div><div class="team-bio">Amable y dedicado. Además del corte, enseña a los clientes a cuidar su pelo en casa con los productos adecuados.</div></div>
+      </div>
+      <div class="team rv d4">
+        <div class="team-av"><span class="team-init">YU</span><div class="team-bar"></div></div>
+        <div class="team-info"><div class="team-name">YURI</div><div class="team-role">Nail Artist</div><div class="team-bio">Especialista en nail art, gel y semipermanente. El complemento perfecto al corte.</div></div>
+      </div>
+      <div class="team rv d5">
+        <div class="team-av"><span class="team-init">BL</span><div class="team-bar"></div></div>
+        <div class="team-info"><div class="team-name">BLANCA</div><div class="team-role">Nail Artist</div><div class="team-bio">Experta en diseños y acabados. Con Yuri forman el mejor nail studio de Majadahonda.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg)" id="resenas">
+  <div class="c">
+    <div class="rev-head">
+      <div class="rv"><span class="tag">Clientes reales</span><h2 class="h2">298 RESEÑAS<br><i>5 ESTRELLAS</i></h2></div>
+      <div class="rev-badge rv d2">
+        <span class="badge-num">5.0</span>
+        <div class="badge-r"><div class="badge-stars"><span class="badge-star">★</span><span class="badge-star">★</span><span class="badge-star">★</span><span class="badge-star">★</span><span class="badge-star">★</span></div><span class="badge-txt">298 reseñas · Booksy y Google</span></div>
+      </div>
+    </div>
+    <div class="rev-grid">
+      <div class="rc rv d1"><div class="rc-stars"><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span></div><p class="rc-txt">"Me corté el pelo con José como siempre, él siempre me atiende y siempre da el mejor servicio. Además el ambiente muy bueno y música de 10."</p><div class="rc-author"><div class="rc-av">BR</div><div><div class="rc-name">Bruno</div><div class="rc-meta">Corte con Jose · Mar 2026 · Booksy ✓</div></div></div></div>
+      <div class="rc rv d2"><div class="rc-stars"><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span></div><p class="rc-txt">"Muy bien, Luis es detallista y un gran profesional."</p><div class="rc-reply">"Muchas gracias por siempre confiar en mi trabajo 🙏" — Supreme Cutz</div><div class="rc-author"><div class="rc-av">RO</div><div><div class="rc-name">Roberto</div><div class="rc-meta">Corte con Luis · Feb 2026 · Booksy ✓</div></div></div></div>
+      <div class="rc rv d3"><div class="rc-stars"><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span></div><p class="rc-txt">"Excelente corte! Felipe es muy amable y dedicado. Incluso enseñó a mi hijo cómo peinarse y los productos a utilizar. Sin duda, lo recomiendo."</p><div class="rc-author"><div class="rc-av">EG</div><div><div class="rc-name">Egilde</div><div class="rc-meta">Corte con Felipe · Feb 2026 · Booksy ✓</div></div></div></div>
+      <div class="rc rv d1"><div class="rc-stars"><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span></div><p class="rc-txt">"Como siempre excelente."</p><div class="rc-author" style="margin-top:20px"><div class="rc-av">KA</div><div><div class="rc-name">Kathy</div><div class="rc-meta">Corte con Jose · Feb 2026 · Booksy ✓</div></div></div></div>
+      <div class="rc rv d2"><div class="rc-stars"><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span></div><p class="rc-txt">"Excelente atención y servicio."</p><div class="rc-author" style="margin-top:20px"><div class="rc-av">AN</div><div><div class="rc-name">Andrés</div><div class="rc-meta">Corte + Barba con Jose · Feb 2026 · Booksy ✓</div></div></div></div>
+      <div class="rc rv d3"><div class="rc-stars"><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span><span class="rc-star">★</span></div><p class="rc-txt">"Todo excelente."</p><div class="rc-author" style="margin-top:20px"><div class="rc-av">LG</div><div><div class="rc-name">Luigi</div><div class="rc-meta">Corte con Jose · Mar 2026 · Booksy ✓</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg2)" id="nails">
+  <div class="c">
+    <div class="nails-layout">
+      <div>
+        <div class="rv"><span class="tag">También hacemos</span><h2 class="h2">NAIL<br><i>STUDIO</i></h2></div>
+        <p class="lead rv d2" style="margin-top:18px">Yuri y Blanca se encargan de que salgas perfecto de arriba a abajo. Manicura, gel, semipermanente y diseños — todo en el mismo local que el corte.</p>
+        <a href="#contacto" class="btn-fill rv d3" style="margin-top:26px;display:inline-block">Reservar nails</a>
+      </div>
+      <div>
+        <div class="nails-grid rv d2">
+          <div class="nc"><div class="nc-ico">💅</div><div class="nc-name">MANICURA</div><div class="nc-price">25€</div><div class="nc-time">1h 15min</div></div>
+          <div class="nc"><div class="nc-ico">✨</div><div class="nc-name">GEL COMPLETO</div><div class="nc-price">50€+</div><div class="nc-time">3h</div></div>
+          <div class="nc"><div class="nc-ico">💎</div><div class="nc-name">SEMIPERMANENTE</div><div class="nc-price">28€</div><div class="nc-time">1h 15min</div></div>
+          <div class="nc"><div class="nc-ico">🌟</div><div class="nc-name">DISEÑO + GEL</div><div class="nc-price">38€</div><div class="nc-time">2h</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.book-hero{background:var(--gold);padding:56px 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:1px}
+.book-hero-left h3{font-family:var(--disp);font-size:clamp(36px,5vw,64px);letter-spacing:.03em;color:var(--bg);line-height:.95;margin-bottom:14px}
+.book-hero-left p{font-size:14px;color:rgba(7,7,7,.65);line-height:1.7;max-width:360px}
+.book-hero-right{display:flex;flex-direction:column;gap:14px}
+.book-main-btn{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--bg);color:var(--white);padding:22px 28px;text-decoration:none;transition:all .25s;border:1px solid transparent}
+.book-main-btn:hover{background:#111;transform:translateX(4px)}
+.book-main-btn-left{display:flex;flex-direction:column;gap:3px}
+.book-main-btn-label{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.book-main-btn-text{font-family:var(--disp);font-size:22px;letter-spacing:.05em;color:var(--white)}
+.book-main-btn-arrow{font-size:24px;color:var(--gold);flex-shrink:0}
+.book-wa-btn{display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(7,7,7,.15);color:var(--bg);padding:18px 28px;text-decoration:none;transition:all .25s;border:1px solid rgba(7,7,7,.2)}
+.book-wa-btn:hover{background:rgba(7,7,7,.25)}
+.book-wa-btn-left{display:flex;flex-direction:column;gap:2px}
+.book-wa-btn-label{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(7,7,7,.5)}
+.book-wa-btn-text{font-size:14px;font-weight:600;color:var(--bg)}
+.book-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.book-chip{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:rgba(7,7,7,.1);color:rgba(7,7,7,.6);padding:4px 10px}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.ig-card{background:var(--bg2);padding:32px 28px}
+.ig-label{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.ig-text{font-size:13px;color:var(--white);line-height:1.8}
+.ig-text a{color:var(--gold);text-decoration:none}
+.hor2{display:flex;flex-direction:column;gap:0}
+.hor2-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(30,30,30,.7)}
+.hor2-row:last-child{border-bottom:none}
+.hor2-d{font-size:12px;color:var(--grey)}
+.hor2-t{font-size:12px;color:var(--white);font-weight:500;text-align:right}
+.hor2-c{color:var(--red)}
+@media(max-width:960px){.book-hero{grid-template-columns:1fr;gap:32px;padding:40px 20px}.info-grid{grid-template-columns:1fr}}
+</style>
+<section style="background:var(--bg3);padding:110px 0 0" id="contacto">
+  <div class="c">
+    <div class="rv" style="margin-bottom:48px"><span class="tag">Reservar</span><h2 class="h2">PIDE TU <i>CITA</i></h2></div>
+  </div>
+
+  <div class="book-hero rv">
+    <div class="book-hero-left">
+      <h3>RESERVA<br>ONLINE<br>24/7</h3>
+      <p>Elige tu barbero, el servicio y el hueco que mejor te venga. Disponibilidad en tiempo real, sin llamadas, sin esperas.</p>
+    </div>
+    <div class="book-hero-right">
+      <a href="https://booksy.com/es-es/5537_supreme-cutz-barbershop-nails_barberia_53073_majadahonda" target="_blank" class="book-main-btn">
+        <div class="book-main-btn-left">
+          <span class="book-main-btn-label">Reservar ahora en</span>
+          <span class="book-main-btn-text">BOOKSY</span>
+        </div>
+        <span class="book-main-btn-arrow">→</span>
+      </a>
+      <div class="book-chips">
+        <span class="book-chip">Elige tu barbero</span>
+        <span class="book-chip">Disponibilidad real</span>
+        <span class="book-chip">Confirmación inmediata</span>
+        <span class="book-chip">Sin llamadas</span>
+      </div>
+      <a href="https://wa.me/34910127182?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Supreme%20Cutz" target="_blank" class="book-wa-btn">
+        <div class="book-wa-btn-left">
+          <span class="book-wa-btn-label">O escríbenos por</span>
+          <span class="book-wa-btn-text">WhatsApp · 910 12 71 82</span>
+        </div>
+        <span style="font-size:20px">💬</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="c" style="padding-top:0;padding-bottom:0">
+    <div class="info-grid rv d1" style="margin-top:1px">
+      <div class="ig-card">
+        <div class="ig-label">Dirección</div>
+        <div class="ig-text">Calle Las Norias, 13<br>28220 Majadahonda, Madrid<br><br><a href="https://maps.google.com/?q=Supreme+Cutz+Majadahonda" target="_blank">Ver en Google Maps →</a></div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-label">Horario</div>
+        <div class="hor2">
+          <div class="hor2-row"><span class="hor2-d">Lunes – Viernes</span><span class="hor2-t">10:00–14:00<br>16:00–20:00</span></div>
+          <div class="hor2-row"><span class="hor2-d">Sábado</span><span class="hor2-t">10:00–16:00</span></div>
+          <div class="hor2-row"><span class="hor2-d">Domingo</span><span class="hor2-t hor2-c">Cerrado</span></div>
+        </div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-label">Contacto directo</div>
+        <div class="ig-text">
+          <a href="tel:+34910127182">910 12 71 82</a><br><br>
+          <a href="https://wa.me/34910127182" target="_blank">WhatsApp</a><br><br>
+          <a href="https://booksy.com/es-es/5537_supreme-cutz-barbershop-nails_barberia_53073_majadahonda" target="_blank">Booksy (reserva online)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height:110px"></div>
+</section>
+
+<footer>
+  <div class="c">
+    <div class="ft-grid">
+      <div><div class="ft-logo"><div class="ft-dot"></div>SUPREME CUTZ</div><p class="ft-desc">Barbershop & Nail Studio en Majadahonda. 5 estrellas · 298 reseñas en Google y Booksy. Calle Las Norias, 13.</p><div class="ft-soc"><a href="#">ig</a><a href="https://wa.me/34910127182">wa</a><a href="https://booksy.com/es-es/5537_supreme-cutz-barbershop-nails_barberia_53073_majadahonda" target="_blank">bk</a></div></div>
+      <div><div class="ft-h">Servicios</div><ul class="ft-links"><li><a href="#servicios">Corte de pelo</a></li><li><a href="#servicios">Corte + Barba</a></li><li><a href="#servicios">Fade / Degradado</a></li><li><a href="#nails">Nail Studio</a></li><li><a href="#contacto">Reservar cita</a></li></ul></div>
+      <div class="ft-ct"><div class="ft-h">Contacto</div><p>Calle Las Norias, 13<br>28220 Majadahonda<br><br><a href="tel:+34910127182">910 12 71 82</a><br><br>Lun–Vie: 10:00–14:00 · 16:00–20:00<br>Sábado: 10:00–16:00</p></div>
+    </div>
+    <div class="ft-bottom"><p class="ft-copy">© 2026 Supreme Cutz Barbershop · Majadahonda</p><p class="ft-copy">5.0 ★ · 298 reseñas verificadas</p></div>
+  </div>
+</footer>
+
+<div class="wa">
+  <div class="wa-tip">Reservar por WhatsApp</div>
+  <a href="https://wa.me/34910127182?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Supreme%20Cutz" class="wa-btn" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('s',scrollY>50));
+function toggleMenu(){document.getElementById('mob').classList.toggle('open')}
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+  setTimeout(()=>{cur2.style.left=e.clientX+'px';cur2.style.top=e.clientY+'px'},80);
+});
+document.querySelectorAll('a,button,.svc,.team,.rc,.nc').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='14px';cur.style.height='14px';cur2.style.width='46px';cur2.style.height='46px';cur2.style.borderColor='rgba(201,168,76,.6)'});
+  el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';cur2.style.width='32px';cur2.style.height='32px';cur2.style.borderColor='rgba(201,168,76,.4)'});
+});
+const obs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('in')}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(r=>obs.observe(r));
+</script>
+</body>
+</html>
